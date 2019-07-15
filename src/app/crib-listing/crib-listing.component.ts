@@ -9,7 +9,7 @@ import { CribsService } from './../services/cribs.service';
 })
 export class CribListingComponent implements OnInit {
 
-  cribs: any[];
+  cribs: Array <any>;
   error: string;
 
   constructor(
