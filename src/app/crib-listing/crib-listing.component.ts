@@ -9,7 +9,7 @@ import { CribsService } from './../services/cribs.service';
 })
 export class CribListingComponent implements OnInit {
 
-  cribs: Array <any>;
+  cribs: Array<any>;
   error: string;
 
   constructor(
@@ -20,8 +20,13 @@ export class CribListingComponent implements OnInit {
   ngOnInit() {
       this.cribsService.getAllCribs()
       .subscribe(
+        
         data => this.cribs = data,
         error => this.error = error.statusText
       );
+
+      this.cribsService.newCribSubject.subscribe(
+        data => this.cribs =[data, ...this.cribs]
+      )
   }
 }
